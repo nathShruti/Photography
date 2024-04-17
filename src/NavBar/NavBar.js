@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Scrollspy from 'react-scrollspy'
+import logo from '../assets/img/SN-1.png'
 
 const navigation = [
   { name: 'Home', href: '#home' },
@@ -20,7 +21,7 @@ export default function Navbar() {
   const [activeNavItem, setActiveNavItem] = useState(navigation[0].href.substring(1)); // Initial active item
 
   return (
-    <Disclosure as="nav" className="bg-black sticky top-0">
+    <Disclosure as="nav" className="bg-black sticky top-0 border-stone-600 border-b-2 z-10 h-16">
       {() => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -37,7 +38,14 @@ export default function Navbar() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center lg:justify-evenly sm:items-stretch sm:justify-start">
+              <div className="flex flex-1 items-center justify-center lg:justify-evenly sm:justify-start">
+                <div className="flex flex-shrink-0 items-center">
+                  <img
+                    className="w-auto h-12"
+                    src={logo}
+                    alt="Your Company"
+                  />
+                  </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <Scrollspy
                     items={navigation.map(item => item.href.substring(1))}
